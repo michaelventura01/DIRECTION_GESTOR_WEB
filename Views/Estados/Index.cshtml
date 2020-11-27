@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Estados>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br><br>
+<h2>Estados</h2>
+<br>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Descripcion 
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Dominio
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdDominioEstadoFkNavigation.DescripcionDominioEstado)
+            </td>
+            <td>                
+                <a asp-action="Edit" asp-route-id="@item.IdEstado"><i class="glyphicon glyphicon-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdEstado"><i class="glyphicon glyphicon-book"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdEstado"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿@model DIRECTION_GESTOR.Models.Barrios
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br><br>
+<h2>Detalles</h2>
+<hr>
+<div>
+    <h4>Barrio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Barrio
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionBarrio)
+        </dd>
+        <dt>
+            Ciudad
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdCiudadFkNavigation.IdCiudad)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdBarrio" class="btn btn-primary">Modificar</a> |
+    <a asp-action="Index">Volver Atras</a>
+</div>

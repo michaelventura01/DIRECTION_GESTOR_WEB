@@ -1,0 +1,60 @@
+﻿@model DIRECTION_GESTOR.Models.Articulos
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br><br>
+<h2>Detalles</h2>
+
+<div>
+    <h4>Articulos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Articulo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionArticulo)
+        </dd>
+        <dt>
+            Cantidad
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CantidadArticulo)
+        </dd>
+        <dt>
+            Precio
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrecioArticulo)
+        </dd>
+        <dt>
+            Codigo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CodigoArticulo)
+        </dd>
+        <dt>
+            Fecha de Ingreso
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaArticulo)
+        </dd>
+        <dt>
+           Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+        <dt style="display:none">
+            Institucion
+        </dt>
+        <dd style="display:none">
+            @Html.DisplayFor(model => model.IdInstitucionFkNavigation.NombreInstitucion)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdArticulo" class="btn btn-primary">Editar</a> |
+    <a asp-action="Index">Volver Atras</a>
+</div>

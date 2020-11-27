@@ -1,0 +1,37 @@
+﻿@model DIRECTION_GESTOR.Models.Estudiantescursos
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br><br>
+<h2>Detalles</h2>
+<br>
+<div>
+    <h4>Estudiante en Curso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Estudiante
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CodigoEstudianteFkNavigation.CodigoEstudiante) - @Html.DisplayFor(model => model.CodigoEstudianteFkNavigation.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(model => model.CodigoEstudianteFkNavigation.IdPersonaFkNavigation.ApellidoPersonas)
+        </dd>
+        <dt>
+            Curso
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdCursoFkNavigation.DescripcionCurso)
+        </dd>
+        <dt>
+            Fecha
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaEstudianteCurso)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdEstudianteCurso" class="btn btn-primary">Modificar</a> |
+    <a asp-action="Index">Volver Atras</a>
+</div>

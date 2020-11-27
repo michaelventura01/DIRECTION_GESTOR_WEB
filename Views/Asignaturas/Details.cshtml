@@ -1,0 +1,36 @@
+﻿@model DIRECTION_GESTOR.Models.Asignaturas
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br><br>
+<h2>Detalles de la Asignatura</h2>
+
+<div>
+    <h4>Asignaturas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Asignatura
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionAsignatura)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+        <dt style="display:none">
+            Institucion
+        </dt>
+        <dd style="display:none">
+            @Html.DisplayFor(model => model.IdInstitucionFkNavigation.NombreInstitucion)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdAsignatura" class="btn btn-primary">Modificar</a> |
+    <a asp-action="Index">Volver Atras</a>
+</div>

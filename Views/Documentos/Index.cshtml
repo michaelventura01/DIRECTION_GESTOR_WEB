@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Documentos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tipo de Documento
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Estado
+            </th>
+            <th style="display:none">
+                @Html.DisplayNameFor(model => model.IdInstitucionFkNavigation)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoDocumentoFkNavigation.DescripcionTipoDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoFkNavigation.DescripcionEstado)
+            </td>
+            <td style="display:none">
+                @Html.DisplayFor(modelItem => item.IdInstitucionFkNavigation.DescripcionInstitucion)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdDocumento"><i class="glyphicon glyphicon-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdDocumento"><i class="glyphicon glyphicon-book"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdDocumento"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

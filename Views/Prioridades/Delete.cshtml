@@ -1,0 +1,27 @@
+﻿@model DIRECTION_GESTOR.Models.Prioridades
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<br><br>
+<h2>Eliminar</h2>
+
+<h3>Deseas Eliminar esto?</h3>
+<div>
+    <h4>Prioridades</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Prioridad
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionPrioridad)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdPrioridad" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

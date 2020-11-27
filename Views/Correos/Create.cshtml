@@ -1,0 +1,36 @@
+﻿@model DIRECTION_GESTOR.Models.Correos
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br /><br>
+<h3>Agregar Correo</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DescripcionCorreo" class="control-label">Correo</label>
+                <input asp-for="DescripcionCorreo" class="form-control" />
+                <span asp-validation-for="DescripcionCorreo" class="text-danger"></span>
+            </div>
+            <div class="form-group" id="estadoCorreo">
+                <label asp-for="IdEstadoFk" class="control-label">Estado</label>
+                <select asp-for="IdEstadoFk" class="form-control" asp-items="ViewBag.IdEstadoFk"></select>
+            </div>
+            <div class="form-group" id="InstitucionCorreo" style="display:none">
+                <label asp-for="IdInstitucionFk" class="control-label"></label>
+                <select asp-for="IdInstitucionFk" class="form-control" asp-items="ViewBag.IdInstitucionFk"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Agregar" class="btn btn-primary" id="btnCreateCorreo" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

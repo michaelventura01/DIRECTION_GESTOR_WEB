@@ -1,0 +1,54 @@
+﻿@model DIRECTION_GESTOR.Models.Mensajes
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mensajes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TituloMensaje)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TituloMensaje)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionMensaje)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionMensaje)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdEstadoFkNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdInstitucionFkNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdInstitucionFkNavigation.DescripcionInstitucion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdUsuarioEmisorFkNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdUsuarioEmisorFkNavigation.NameUsuario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdUsuarioReceptorFkNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdUsuarioReceptorFkNavigation.NameUsuario)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdMensaje">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

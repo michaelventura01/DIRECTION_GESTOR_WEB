@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Correos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br><br>
+<h2>Correos</h2>
+<hr>
+<p>
+    <a asp-action="Create">Agregar Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Correo
+            </th>
+            <th>
+                Estado
+            </th>
+            <th style="display:none">
+                @Html.DisplayNameFor(model => model.IdInstitucionFkNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionCorreo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoFkNavigation.DescripcionEstado)
+            </td>
+            <td style="display:none">
+                @Html.DisplayFor(modelItem => item.IdInstitucionFkNavigation.DescripcionInstitucion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCorreo"><i class="glyphicon glyphicon-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdCorreo"><i class="glyphicon glyphicon-book"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCorreo"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

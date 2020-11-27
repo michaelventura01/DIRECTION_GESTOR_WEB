@@ -1,0 +1,33 @@
+﻿@model DIRECTION_GESTOR.Models.Personastelefonos
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Deseas Eliminar esto?</h3>
+<div>
+    <h4>Telefonos de Personas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Persona
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(model => model.IdPersonaFkNavigation.ApellidoPersonas)
+        </dd>
+        <dt>
+            Telefono
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdTelefonoFkNavigation.DescripcionTelefono)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdPersonaTelefono" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

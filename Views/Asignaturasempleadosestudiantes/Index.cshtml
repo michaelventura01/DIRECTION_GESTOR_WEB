@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Asignaturasempleadosestudiantes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br><br>
+<h2>Estudiantes Asignados a Asignaturas</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Agregar Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Estudiante
+            </th>
+            <th>
+                Profesor
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Periodo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoEstudianteFkNavigation.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(modelItem => item.CodigoEstudianteFkNavigation.IdPersonaFkNavigation.ApellidoPersonas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAsignaturaEmpleadoFkNavigation.CodigoEmpleadoFkNavigation.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(modelItem => item.IdAsignaturaEmpleadoFkNavigation.CodigoEmpleadoFkNavigation.IdPersonaFkNavigation.ApellidoPersonas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoFkNavigation.DescripcionEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPeriodoFkNavigation.DescripcionPeriodo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdAsignaturaEmpleadoEstudiante"><i class="glyphicon glyphicon-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdAsignaturaEmpleadoEstudiante"><i class="glyphicon glyphicon-book"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdAsignaturaEmpleadoEstudiante"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

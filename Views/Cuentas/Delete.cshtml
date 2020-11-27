@@ -1,0 +1,64 @@
+﻿@model DIRECTION_GESTOR.Models.Cuentas
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Eliminar esta cuenta?</h3>
+<div>
+    <h4>Cuentas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Descripcion de Cuenta
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionCuenta)
+        </dd>
+        <dt>
+            Tipo de Cuenta
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdTipoCuentaFkNavigation.DescripcionTipoCuenta)
+        </dd>
+        <dt>
+            Monto
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MontoCuenta)
+        </dd>
+        <dt>
+            Fecha de Cuenta
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaCuenta)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+        <dt style="display:none">
+            @Html.DisplayNameFor(model => model.IdInstitucionFkNavigation)
+        </dt>
+        <dd style="display:none">
+            @Html.DisplayFor(model => model.IdInstitucionFkNavigation.DescripcionInstitucion)
+        </dd>
+        <dt>
+            Persona
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(model => model.IdPersonaFkNavigation.ApellidoPersonas)
+        </dd>
+
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdCuenta" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

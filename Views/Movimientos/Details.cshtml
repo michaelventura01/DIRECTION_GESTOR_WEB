@@ -1,0 +1,61 @@
+﻿@model DIRECTION_GESTOR.Models.Movimientos
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br><br>
+<h2>Detalles</h2>
+<br>
+<div>
+    <h4>Movimiento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Descripcion
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionMovimiento)
+        </dd>
+        <dt>
+            Monto
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MontoMovimiento)
+        </dd>
+
+        <dt>
+            Tipo de Movimiento
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdTipoMovimiento)
+        </dd>
+        <dt>
+            Fecha
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaMovimiento)
+        </dd>
+        <dt>
+            Hora
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HoraMovimiento)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+        <dt style="display:none">
+            @Html.DisplayNameFor(model => model.IdInstitucionFkNavigation)
+        </dt>
+        <dd style="display:none">
+            @Html.DisplayFor(model => model.IdInstitucionFkNavigation.DescripcionInstitucion)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdMovimiento" class="btn btn-primary">Modificar</a> |
+    <a asp-action="Index">Volver Atras</a>
+</div>

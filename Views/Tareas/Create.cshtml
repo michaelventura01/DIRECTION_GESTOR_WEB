@@ -1,0 +1,58 @@
+﻿@model DIRECTION_GESTOR.Models.Tareas
+
+@{
+    ViewData["Title"] = "Create";
+}
+<br><br />
+<h2>Agregar Tarea</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TituloTarea" class="control-label">Titulo</label>
+                <input asp-for="TituloTarea" class="form-control" />
+                <span asp-validation-for="TituloTarea" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescripcionTarea" class="control-label">Descripcion</label>
+                <input asp-for="DescripcionTarea" class="form-control" />
+                <span asp-validation-for="DescripcionTarea" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaTarea" class="control-label">Fecha</label>
+                <input asp-for="FechaTarea" class="form-control" />
+                <span asp-validation-for="FechaTarea" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoraTarea" class="control-label">Hora</label>
+                <input asp-for="HoraTarea" class="form-control" />
+                <span asp-validation-for="HoraTarea" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEstadoFk" class="control-label">Estado</label>
+                <select asp-for="IdEstadoFk" class ="form-control" asp-items="ViewBag.IdEstadoFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdPrioridadFk" class="control-label">Prioridad</label>
+                <select asp-for="IdPrioridadFk" class ="form-control" asp-items="ViewBag.IdPrioridadFk"></select>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="IdInstitucionFk" class="control-label"></label>
+                <select asp-for="IdInstitucionFk" class ="form-control" asp-items="ViewBag.IdInstitucionFk"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Agregar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver Atras</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Archivos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br><br>
+<h2>Archivos</h2>
+<hr>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Agregar Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Enlace de Archivo
+            </th>
+            <th>
+                Fecha de Ingreso
+            </th>
+            <th>
+                Hora de Ingreso
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Persona
+            </th>
+            <th>
+                Tipo de Archivo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnlaceArchivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaArchivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoFkNavigation.DescripcionEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(modelItem => item.IdPersonaFkNavigation.ApellidoPersonas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoArchivoFkNavigation.DescripcionTipoArchivo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdArchivo"><i class="glyphicon glyphicon-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdArchivo"><i class="glyphicon glyphicon-book"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdArchivo"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

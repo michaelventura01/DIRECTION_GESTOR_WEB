@@ -1,0 +1,30 @@
+﻿@model DIRECTION_GESTOR.Models.Circunscripciones
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Circunscripcion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Circunscripcion
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionCircunscripcion)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdCircunscripcion" class="btn btn-primary">Modificar</a> |
+    <a asp-action="Index">Volver Atras</a>
+</div>

@@ -1,0 +1,24 @@
+﻿@model DIRECTION_GESTOR.Models.Prioridades
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br><br>
+<h2>Detalles</h2>
+
+<div>
+    <h4>Prioridad</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Prioridad
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionPrioridad)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdPrioridad" class="btn btn-primary">Modificar</a> |
+    <a asp-action="Index">Volver Atras</a>
+</div>

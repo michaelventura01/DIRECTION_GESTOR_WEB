@@ -1,0 +1,39 @@
+﻿@model DIRECTION_GESTOR.Models.Correos
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Quieres Eliminar este Correo?</h3>
+<div>
+    <h4>Correo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Correo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionCorreo)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+        <dt style="display:none">
+            @Html.DisplayNameFor(model => model.IdInstitucionFkNavigation)
+        </dt>
+        <dd style="display:none">
+            @Html.DisplayFor(model => model.IdInstitucionFkNavigation.DescripcionInstitucion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdCorreo" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

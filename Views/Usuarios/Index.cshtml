@@ -1,0 +1,65 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Usuarios>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PasswordUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEstadoFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdInstitucionFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPersonaFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdRolFkNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PasswordUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoFkNavigation.DescripcionEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdInstitucionFkNavigation.DescripcionInstitucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPersonaFkNavigation.ApellidoPersonas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdRolFkNavigation.DescripcionRol)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdUsuario">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdUsuario">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdUsuario">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

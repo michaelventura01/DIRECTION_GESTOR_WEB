@@ -1,0 +1,44 @@
+﻿@model DIRECTION_GESTOR.Models.Estados
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<br><br>
+<h2>Modificar Estado</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdEstado" />
+            <div class="form-group">
+                <label asp-for="DescripcionEstado" class="control-label">Descripcion</label>
+                <input asp-for="DescripcionEstado" class="form-control" />
+                <span asp-validation-for="DescripcionEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdDominioEstadoFk" class="control-label"></label>
+                <select asp-for="IdDominioEstadoFk" class="form-control" asp-items="ViewBag.IdDominioEstadoFk">Dominio</select>
+                <span asp-validation-for="IdDominioEstadoFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Modificar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver Atras</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

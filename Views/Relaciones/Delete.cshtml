@@ -1,0 +1,39 @@
+﻿@model DIRECTION_GESTOR.Models.Relaciones
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<br><br>
+<h2>Eliminar</h2>
+<br>
+<h3>Deseas eliminar esto?</h3>
+<div>
+    <h4>Relaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Persona
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(model => model.IdPersonaFkNavigation.ApellidoPersonas)
+        </dd>
+        <dt>
+            Relacionado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdPersonaRelacionFkNavigation.NombrePersonas) @Html.DisplayFor(model => model.IdPersonaRelacionFkNavigation.ApellidoPersonas)
+        </dd>
+        <dt>
+            Tipo de Relacion
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdTipoRelacionFkNavigation.DescripcionTipoRelacion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdRelacion" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

@@ -1,0 +1,57 @@
+﻿@model DIRECTION_GESTOR.Models.Archivos
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<br><br>
+<h2>Modificar Archivo</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdArchivo" />
+            <div class="form-group">
+                <label asp-for="EnlaceArchivo" class="control-label">Enlace de Archivo</label>
+                <input asp-for="EnlaceArchivo" class="form-control" />
+                <span asp-validation-for="EnlaceArchivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaArchivo" class="control-label">Fecha de Ingreso</label>
+                <input asp-for="FechaArchivo" class="form-control" />
+                <span asp-validation-for="FechaArchivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hora" class="control-label">Hora de Ingreso</label>
+                <input asp-for="Hora" class="form-control" />
+                <span asp-validation-for="Hora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTipoArchivoFk" class="control-label">Tipo de Archivo</label>
+                <select asp-for="IdTipoArchivoFk" class="form-control" asp-items="ViewBag.IdTipoArchivoFk"></select>
+                <span asp-validation-for="IdTipoArchivoFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEstadoFk" class="control-label">Estado</label>
+                <select asp-for="IdEstadoFk" class="form-control" asp-items="ViewBag.IdEstadoFk"></select>
+                <span asp-validation-for="IdEstadoFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdPersonaFk" class="control-label">Persona</label>
+                <select asp-for="IdPersonaFk" class="form-control" asp-items="ViewBag.IdPersonaFk"></select>
+                <span asp-validation-for="IdPersonaFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Modificar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

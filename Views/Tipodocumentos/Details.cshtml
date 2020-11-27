@@ -1,0 +1,30 @@
+﻿@model DIRECTION_GESTOR.Models.Tipodocumentos
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br><br>
+<h2>Detalles</h2>
+<br>
+<div>
+    <h4>Tipodocumentos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tipo de Documento
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionTipoDocumento)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdTipoDocumento" class="btn btn-primary">Modificar</a> |
+    <a asp-action="Index">Volver Atras</a>
+</div>

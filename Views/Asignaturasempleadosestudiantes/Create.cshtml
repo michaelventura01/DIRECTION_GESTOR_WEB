@@ -1,0 +1,42 @@
+﻿@model DIRECTION_GESTOR.Models.Asignaturasempleadosestudiantes
+
+@{
+    ViewData["Title"] = "Create";
+}
+<br><br>
+<h2>Asignar estudiantes A profesores</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdAsignaturaEmpleadoFk" class="control-label">Profesor</label>
+                <select asp-for="IdAsignaturaEmpleadoFk" class ="form-control" asp-items="ViewBag.IdAsignaturaEmpleadoFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodigoEstudianteFk" class="control-label">Estudiante</label>
+                <select asp-for="CodigoEstudianteFk" class ="form-control" asp-items="ViewBag.CodigoEstudianteFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEstadoFk" class="control-label">Estado</label>
+                <select asp-for="IdEstadoFk" class ="form-control" asp-items="ViewBag.IdEstadoFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdPeriodoFk" class="control-label">Periodo</label>
+                <select asp-for="IdPeriodoFk" class ="form-control" asp-items="ViewBag.IdPeriodoFk"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Agregar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver Atras</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

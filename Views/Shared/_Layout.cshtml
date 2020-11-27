@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DIRECTION GESTOR</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">DIRECTION GESTOR</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a asp-area="" class="dropdown-toggle" data-toggle="dropdown">Personas</a>
+                        <ul class="dropdown dropdown-menu">
+                            <li><a asp-area="" asp-controller="Personas" asp-action="Index">Ver Personas</a></li>
+                            <li><a asp-area="" asp-controller="Personas" asp-action="Create">Agregar Personas</a></li>
+                            <li><a asp-area="" asp-controller="Actanacimientoes" asp-action="Create">Agregar Acta de Nacimiento</a></li>
+                            <li><a asp-area="" asp-controller="Actanacimientoes" asp-action="Index">Ver Acta de Nacimiento</a></li>
+                            <li><a asp-area="" asp-controller="Documentos" asp-action="Create">Agregar Documento</a></li>
+                            <li><a asp-area="" asp-controller="Documentos" asp-action="Index">Ver Documentos</a></li>
+                            <li><a asp-area="" asp-controller="Correos" asp-action="Create">Agregar Correo</a></li>
+                            <li><a asp-area="" asp-controller="Personascorreos" asp-action="Create">asignar Correo</a></li>
+                            <li><a asp-area="" asp-controller="Personascorreos" asp-action="Index">Ver Correos</a></li>
+                            <li><a asp-area="" asp-controller="Telefonos" asp-action="Create">Agregar Telefono</a></li>
+                            <li><a asp-area="" asp-controller="Personastelefonos" asp-action="Create">asignar Telefono</a></li>
+                            <li><a asp-area="" asp-controller="Personastelefonos" asp-action="Index">Ver Telefonos</a></li>
+                            <li><a asp-area="" asp-controller="Direcciones" asp-action="Index">Ver Direcciones</a></li>
+                            <li><a asp-area="" asp-controller="Direcciones" asp-action="Create">Agregar Direccion</a></li>
+                        </ul>
+
+                    </li>
+
+                    <li>
+                        <a asp-area="" class="dropdown-toggle" data-toggle="dropdown">Estudiantes</a>
+                        <ul class="dropdown dropdown-menu">
+                            <li><a asp-area="" asp-controller="Estudiantes" asp-action="Index">Ver Estudiantes</a></li>
+                            <li><a asp-area="" asp-controller="Estudiantes" asp-action="Create">Agregar Estudiante</a></li>
+                            <li><a asp-area="" asp-controller="Estudiantescursos" asp-action="Index">Ver Estudiantes de Cursos</a></li>
+                            <li><a asp-area="" asp-controller="Estudiantescursos" asp-action="Create">Agregar Estudiante A Curso</a></li>
+                            <li><a asp-area="" asp-controller="Estudiantescursos" asp-action="Index">Ver Estudiantes de Cursos</a></li>
+                            <li><a asp-area="" asp-controller="Estudiantescursos" asp-action="Create">Agregar Estudiante A Curso</a></li>
+                            <li><a asp-area="" asp-controller="Personas" asp-action="Index">Ver Personas</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a asp-area="" class="dropdown-toggle" data-toggle="dropdown">Empleados</a>
+                        <ul class="dropdown dropdown-menu">
+                            <li><a asp-area="" asp-controller="Empleados" asp-action="Index">Ver Empleados</a></li>
+                            <li><a asp-area="" asp-controller="Empleados" asp-action="Create">Agregar Empleado</a></li>
+                            <li><a asp-area="" asp-controller="Asignaturasempleados" asp-action="Index">Ver Profesores</a></li>
+                            <li><a asp-area="" asp-controller="Asignaturasempleados" asp-action="Create">Agregar Profesor</a></li>
+                            <li><a asp-area="" asp-controller="Asignaturasempleadosestudiantes" asp-action="Index">Ver Estudiantes Asignados</a></li>
+                            <li><a asp-area="" asp-controller="Asignaturasempleadosestudiantes" asp-action="Create">Asignar Estudiantes</a></li>
+                            <li><a asp-area="" asp-controller="Personas" asp-action="Index">Ver Personas</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a asp-area="" class="dropdown-toggle" data-toggle="dropdown">Asignaturas</a>
+                        <ul class="dropdown dropdown-menu">
+                            <li><a asp-area="" asp-controller="Asignaturas" asp-action="Index">Ver Asignaturas</a></li>
+                            <li><a asp-area="" asp-controller="Asignaturas" asp-action="Create">Agregar Asignatura</a></li>
+                            <li><a asp-area="" asp-controller="Calificaciones" asp-action="Index">Ver Calificaciones</a></li>
+                            <li><a asp-area="" asp-controller="Calificaciones" asp-action="Create">Calificar</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a asp-area="" class="dropdown-toggle" data-toggle="dropdown">Aulas</a>
+                        <ul class="dropdown dropdown-menu">
+                            <li><a asp-area="" asp-controller="Aulas" asp-action="Index">Ver Aulas</a></li>
+                            <li><a asp-area="" asp-controller="Aulas" asp-action="Create">Agregar Aulas</a></li>
+                            <li><a asp-area="" asp-controller="Edificios" asp-action="Index">Ver Edificios</a></li>
+                            <li><a asp-area="" asp-controller="Edificios" asp-action="Create">Agregar Edificio</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a asp-area="" class="dropdown-toggle" data-toggle="dropdown">Cursos</a>
+                        <ul class="dropdown dropdown-menu">
+                            <li><a asp-area="" asp-controller="Cursos" asp-action="Index">Ver Cursos</a></li>
+                            <li><a asp-area="" asp-controller="Cursos" asp-action="Create">Agregar Cursos</a></li>
+                            <li><a asp-area="" asp-controller="Cursosasignaturas" asp-action="Index">Ver Asignaturas de Cursos</a></li>
+                            <li><a asp-area="" asp-controller="Cursosasignaturas" asp-action="Create">Agregar Asignatura A Curso</a></li>
+                            <li><a asp-area="" asp-controller="Estudiantescursos" asp-action="Index">Ver Estudiantes de Cursos</a></li>
+                            <li><a asp-area="" asp-controller="Estudiantescursos" asp-action="Create">Agregar Estudiante A Curso</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a asp-area="" class="dropdown-toggle" data-toggle="dropdown">Cuentas</a>
+                        <ul class="dropdown dropdown-menu">
+                            <li><a asp-area="" asp-controller="Cuentas" asp-action="Index">Ver Cuentas</a></li>
+                            <li><a asp-area="" asp-controller="Cuentas" asp-action="Create">Agregar Cuentas</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a asp-area="" class="dropdown-toggle" data-toggle="dropdown">Movimientos</a>
+                        <ul class="dropdown dropdown-menu">
+                            <li><a asp-area="" asp-controller="Movimientos" asp-action="Index">Ver Movimientos</a></li>
+                            <li><a asp-area="" asp-controller="Movimientos" asp-action="Create">Agregar Movimiento</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a asp-area="" class="dropdown-toggle" data-toggle="dropdown">Articulos</a>
+                        <ul class="dropdown dropdown-menu">
+                            <li><a asp-area="" asp-controller="Articulos" asp-action="Create">Agregar Articulo</a></li>
+                            <li><a asp-area="" asp-controller="Articulos" asp-action="Index">Ver Articulos</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <partial name="_CookieConsentPartial" />
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr/>
+        <footer>
+            <p>&copy; 2019 - DIRECTION GESTOR - Michael Ventura</p>
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

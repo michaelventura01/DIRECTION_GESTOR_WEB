@@ -1,0 +1,39 @@
+﻿@model DIRECTION_GESTOR.Models.Estados
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<br><br>
+<h2>Eliminar</h2>
+<br>
+<h3>Deseas Eliminar Esto?</h3>
+<div>
+    <h4>Estados</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Descripcion
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionEstado)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt>
+            Dominio
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdDominioEstadoFkNavigation.DescripcionDominioEstado)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdEstado" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

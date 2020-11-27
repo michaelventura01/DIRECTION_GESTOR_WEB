@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Estudiantes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br><br>
+<h2>Estudiantes</h2>
+<br>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Agregar Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEstadoFkNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPersonaFkNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoFkNavigation.DescripcionEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPersonaFkNavigation.ApellidoPersonas)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CodigoEstudiante"><i class="glyphicon glyphicon-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.CodigoEstudiante"><i class="glyphicon glyphicon-book"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.CodigoEstudiante"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

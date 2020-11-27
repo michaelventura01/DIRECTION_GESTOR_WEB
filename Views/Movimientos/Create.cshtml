@@ -1,0 +1,60 @@
+﻿@model DIRECTION_GESTOR.Models.Movimientos
+
+@{
+    ViewData["Title"] = "Create";
+}
+<br><br>
+<h2>Agregar Movimiento</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DescripcionMovimiento" class="control-label">Descripcion</label>
+                <input asp-for="DescripcionMovimiento" class="form-control" />
+                <span asp-validation-for="DescripcionMovimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MontoMovimiento" class="control-label">Monto</label>
+                <input asp-for="MontoMovimiento" class="form-control" />
+                <span asp-validation-for="MontoMovimiento" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="IdTipoMovimiento" class="control-label">Tipo de Movimiento</label>
+                <input asp-for="IdTipoMovimiento" class="form-control" />
+                <span asp-validation-for="IdTipoMovimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaMovimiento" class="control-label">Fecha</label>
+                <input asp-for="FechaMovimiento" class="form-control" />
+                <span asp-validation-for="FechaMovimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoraMovimiento" class="control-label">Hora</label>
+                <input asp-for="HoraMovimiento" class="form-control" />
+                <span asp-validation-for="HoraMovimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEstadoFk" class="control-label">Estado</label>
+                <select asp-for="IdEstadoFk" class ="form-control" asp-items="ViewBag.IdEstadoFk"></select>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="IdInstitucionFk" class="control-label"></label>
+                <select asp-for="IdInstitucionFk" class ="form-control" asp-items="ViewBag.IdInstitucionFk"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver Atras</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

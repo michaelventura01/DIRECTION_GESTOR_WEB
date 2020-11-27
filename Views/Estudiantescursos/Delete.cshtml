@@ -1,0 +1,40 @@
+﻿@model DIRECTION_GESTOR.Models.Estudiantescursos
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<br><br>
+<h2>Eliminar</h2>
+<br>
+<h3>Deseas Eliminar Esto?</h3>
+<div>
+    <h4>Estudiante en Curso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Estudiante
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CodigoEstudianteFkNavigation.CodigoEstudiante) - @Html.DisplayFor(model => model.CodigoEstudianteFkNavigation.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(model => model.CodigoEstudianteFkNavigation.IdPersonaFkNavigation.ApellidoPersonas)
+        </dd>
+        <dt>
+           Curso
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdCursoFkNavigation.DescripcionCurso)
+        </dd>
+        <dt>
+            Fecha de Inicio
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaEstudianteCurso)
+        </dd>
+
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdEstudianteCurso" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

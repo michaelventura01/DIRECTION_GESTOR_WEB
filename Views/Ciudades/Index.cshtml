@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Ciudades>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br><br>
+<h2>Ciudades</h2>
+<hr>
+<p>
+    <a asp-action="Create">Agregar Nueva</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ciudad
+            </th>
+            <th>
+                Pais
+            </th>
+            <th>
+                Estado
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionCiudad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPaisFkNavigation.IdPais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoFkNavigation.DescripcionEstado)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCiudad"><i class="glyphicon glyphicon-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdCiudad"><i class="glyphicon glyphicon-book"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCiudad"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

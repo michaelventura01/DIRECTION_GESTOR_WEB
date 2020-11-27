@@ -1,0 +1,57 @@
+﻿@model DIRECTION_GESTOR.Models.Archivos
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Estas seguro de Eliminar este archivo?</h3>
+<div>
+    <h4>Archivos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Enlace
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EnlaceArchivo)
+        </dd>
+        <dt>
+            Fecha de Ingreso
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaArchivo)
+        </dd>
+        <dt>
+            Hora de Ingreso
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hora)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+        <dt>
+            Persona
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(model => model.IdPersonaFkNavigation.ApellidoPersonas)
+        </dd>
+        <dt>
+            Tipo de Archivo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdTipoArchivoFkNavigation.DescripcionTipoArchivo)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdArchivo" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

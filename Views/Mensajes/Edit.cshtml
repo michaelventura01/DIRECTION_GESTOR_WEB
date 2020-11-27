@@ -1,0 +1,59 @@
+﻿@model DIRECTION_GESTOR.Models.Mensajes
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Mensajes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdMensaje" />
+            <div class="form-group">
+                <label asp-for="TituloMensaje" class="control-label"></label>
+                <input asp-for="TituloMensaje" class="form-control" />
+                <span asp-validation-for="TituloMensaje" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescripcionMensaje" class="control-label"></label>
+                <input asp-for="DescripcionMensaje" class="form-control" />
+                <span asp-validation-for="DescripcionMensaje" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUsuarioEmisorFk" class="control-label"></label>
+                <select asp-for="IdUsuarioEmisorFk" class="form-control" asp-items="ViewBag.IdUsuarioEmisorFk"></select>
+                <span asp-validation-for="IdUsuarioEmisorFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUsuarioReceptorFk" class="control-label"></label>
+                <select asp-for="IdUsuarioReceptorFk" class="form-control" asp-items="ViewBag.IdUsuarioReceptorFk"></select>
+                <span asp-validation-for="IdUsuarioReceptorFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEstadoFk" class="control-label"></label>
+                <select asp-for="IdEstadoFk" class="form-control" asp-items="ViewBag.IdEstadoFk"></select>
+                <span asp-validation-for="IdEstadoFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdInstitucionFk" class="control-label"></label>
+                <select asp-for="IdInstitucionFk" class="form-control" asp-items="ViewBag.IdInstitucionFk"></select>
+                <span asp-validation-for="IdInstitucionFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,53 @@
+﻿@model DIRECTION_GESTOR.Models.Archivos
+
+@{
+    ViewData["Title"] = "Create";
+}
+<br><br>
+<h2>Agregar Archivo</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EnlaceArchivo" class="control-label">Enlace</label>
+                <input type="file" asp-for="EnlaceArchivo" class="form-control" />
+                <span asp-validation-for="EnlaceArchivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaArchivo" class="control-label">Fecha de Entrada</label>
+                <input type="date" asp-for="FechaArchivo" class="form-control" />
+                <span asp-validation-for="FechaArchivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hora" class="control-label">Hora</label>
+                <input type="time" asp-for="Hora" class="form-control" />
+                <span asp-validation-for="Hora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTipoArchivoFk" class="control-label">Tipo de Archivo</label>
+                <select asp-for="IdTipoArchivoFk" class ="form-control" asp-items="ViewBag.IdTipoArchivoFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEstadoFk" class="control-label">Estado</label>
+                <select asp-for="IdEstadoFk" class ="form-control" asp-items="ViewBag.IdEstadoFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdPersonaFk" class="control-label">Persona</label>
+                <select asp-for="IdPersonaFk" class ="form-control" asp-items="ViewBag.IdPersonaFk"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver Atras</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

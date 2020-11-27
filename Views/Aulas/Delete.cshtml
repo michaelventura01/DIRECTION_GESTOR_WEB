@@ -1,0 +1,45 @@
+﻿@model DIRECTION_GESTOR.Models.Aulas
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<br><br>
+<h2>Eliminar</h2>
+
+<h3>Quieres Eliminar esta aula?</h3>
+<div>
+    <h4>Aulas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Aula
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionAula)
+        </dd>
+        <dt>
+            Edificio
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEdificioFkNavigation.DescripcionEdificio)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+        <dt style="display:none">
+            Institucion
+        </dt>
+        <dd style="display:none">
+            @Html.DisplayFor(model => model.IdInstitucionFkNavigation.NombreInstitucion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdAula" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

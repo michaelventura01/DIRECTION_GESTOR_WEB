@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Relaciones>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br><br>
+<h2>Agregar Relacion</h2>
+<br>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Agregar Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Relacionado
+            </th>
+            <th>
+                Relacion
+            </th>
+            <th>
+                Persona
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(modelItem => item.IdPersonaFkNavigation.ApellidoPersonas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoRelacionFkNavigation.DescripcionTipoRelacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPersonaRelacionFkNavigation.NombrePersonas) @Html.DisplayFor(modelItem => item.IdPersonaRelacionFkNavigation.ApellidoPersonas)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdRelacion"><i class="glyphicon glyphicon-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdRelacion"><i class="glyphicon glyphicon-book"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdRelacion"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

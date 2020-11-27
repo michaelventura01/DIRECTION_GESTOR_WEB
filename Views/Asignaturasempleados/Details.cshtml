@@ -1,0 +1,30 @@
+﻿@model DIRECTION_GESTOR.Models.Asignaturasempleados
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br><br>
+<h2>Detalles</h2>
+<br>
+<div>
+    <h4>Empleado Activo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Empleado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CodigoEmpleadoFkNavigation.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(model => model.CodigoEmpleadoFkNavigation.IdPersonaFkNavigation.ApellidoPersonas), @Html.DisplayFor(model => model.CodigoEmpleadoFkNavigation.IdPuestoTrabajoFkNavigation.DescripcionPuestoTrabajo)
+        </dd>
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdAsignaturaEmpleado">Modificar</a> |
+    <a asp-action="Index">Volver Atras</a>
+</div>

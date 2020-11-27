@@ -1,0 +1,72 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Movimientos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br><br>
+<h2>Movimientos</h2>
+<br>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Agregar Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Monto
+            </th>
+            <th>
+                Tipo de Movimiento
+            </th>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Hora
+            </th>
+            <th>
+                Estado
+            </th>
+            <th style="display:none">
+                @Html.DisplayNameFor(model => model.IdInstitucionFkNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionMovimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontoMovimiento)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoMovimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaMovimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraMovimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoFkNavigation.DescripcionEstado)
+            </td>
+            <td style="display:none">
+                @Html.DisplayFor(modelItem => item.IdInstitucionFkNavigation.DescripcionInstitucion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMovimiento"><i class="glyphicon glyphicon-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdMovimiento"><i class="glyphicon glyphicon-book"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMovimiento"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

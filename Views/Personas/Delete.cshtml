@@ -1,0 +1,57 @@
+﻿@model DIRECTION_GESTOR.Models.Personas
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<br><br>
+<h2>Eliminar</h2>
+<br>
+<h3>Deseas eliminar esto?</h3>
+<div>
+    <h4>Persona</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NombrePersonas)
+        </dd>
+        <dt>
+            Apellido
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ApellidoPersonas)
+        </dd>
+        <dt>
+            Fecha de Nacimiento
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaNacimientoPersona)
+        </dd>
+        <dt>
+            Direccion
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdDireccionFkNavigation.DescripcionDireccion), @Html.DisplayFor(model => model.IdDireccionFkNavigation.IdBarrioFkNavigation.DescripcionBarrio), @Html.DisplayFor(model => model.IdDireccionFkNavigation.IdBarrioFkNavigation.IdCiudadFkNavigation.DescripcionCiudad)
+        </dd>
+        <dt>
+            Sexo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdSexoFkNavigation.DescripcionSexo)
+        </dd>
+        <dt>
+            Nacionalidad
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NacionalidadPaisFkNavigation.Nacionalidad)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdPersona" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

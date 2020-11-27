@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Puestostrabajos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br><br>
+<h2>Puestos de Trabajo</h2>
+<br>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Agregar Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Puestos de Trabajo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionPuestoTrabajo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPuestoTrabajo"><i class="glyphicon glyphicon-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdPuestoTrabajo"><i class="glyphicon glyphicon-book"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPuestoTrabajo"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

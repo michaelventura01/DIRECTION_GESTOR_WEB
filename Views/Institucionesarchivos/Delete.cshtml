@@ -1,0 +1,57 @@
+﻿@model DIRECTION_GESTOR.Models.Institucionesarchivos
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Institucionesarchivos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EnlaceArchivo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EnlaceArchivo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaArchivo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaArchivo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hora)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTipoArchivoFk)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdTipoArchivoFk)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdEstadoFk)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFk)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdInstitucionFkNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdInstitucionFkNavigation.DescripcionInstitucion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdArchivo" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

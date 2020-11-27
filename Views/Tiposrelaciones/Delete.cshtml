@@ -1,0 +1,27 @@
+﻿@model DIRECTION_GESTOR.Models.Tiposrelaciones
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<br><br>
+<h2>Eliminar</h2>
+
+<h3>Eliminaras este tipo de relacion?</h3>
+<div>
+    <h4>Tipo de Relacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tipo de Relacion
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionTipoRelacion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdTipoRelacion" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

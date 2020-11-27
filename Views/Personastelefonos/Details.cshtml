@@ -1,0 +1,30 @@
+﻿@model DIRECTION_GESTOR.Models.Personastelefonos
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br><br>
+<h2>Detalles</h2>
+
+<div>
+    <h4>Telefonos de Personas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Personas
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdPersonaFkNavigation.NombrePersonas) @Html.DisplayFor(model => model.IdPersonaFkNavigation.ApellidoPersonas)
+        </dd>
+        <dt>
+            Telefono
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdTelefonoFkNavigation.DescripcionTelefono)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdPersonaTelefono">Modificar</a> |
+    <a asp-action="Index">Volver Atras</a>
+</div>

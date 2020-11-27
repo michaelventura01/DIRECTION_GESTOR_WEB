@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DIRECTION_GESTOR.Models.Prioridades>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br><br>
+<h2>Prioridades</h2>
+
+<p>
+    <a asp-action="Create">Agregar Nueva</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Prioridad
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionPrioridad)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPrioridad"><i class="glyphicon glyphicon-edit"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdPrioridad"><i class="glyphicon glyphicon-book"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPrioridad"><i class="glyphicon glyphicon-remove"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

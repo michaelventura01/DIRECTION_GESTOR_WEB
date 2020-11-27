@@ -1,0 +1,52 @@
+﻿@model DIRECTION_GESTOR.Models.Calificaciones
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<br><br>
+<h2>Eliminar</h2>
+<hr>
+<h3>Eliminaras esta calificacion?</h3>
+<div>
+    <h4>Calificacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Asignatura de Profesor
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdAsignaturaEmpleadoEstudianteFkNavigation.CodigoEstudianteFk)
+        </dd>
+        <dt>
+            Calificacion
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Calificacion)
+        </dd>
+        <dt>
+            Fecha de Calificacion
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaCalificacion)
+        </dd>
+
+        <dt>
+            Estado
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+        <dt style="display:none">
+           Instituciones
+        </dt>
+        <dd style="display:none">
+            @Html.DisplayFor(model => model.IdInstitucionFkNavigation.DescripcionInstitucion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdCalificacion" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver Atras</a>
+    </form>
+</div>

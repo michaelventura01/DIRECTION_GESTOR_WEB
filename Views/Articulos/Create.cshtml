@@ -1,0 +1,59 @@
+﻿@model DIRECTION_GESTOR.Models.Articulos
+
+@{
+    ViewData["Title"] = "Create";
+}
+<br><br>
+<h2>Agregar Articulos</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DescripcionArticulo" class="control-label">Articulo</label>
+                <input asp-for="DescripcionArticulo" class="form-control" />
+                <span asp-validation-for="DescripcionArticulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CantidadArticulo" class="control-label">Cantidad</label>
+                <input Type="number" asp-for="CantidadArticulo" class="form-control" />
+                <span asp-validation-for="CantidadArticulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrecioArticulo" class="control-label">Precio</label>
+                <input type="number" asp-for="PrecioArticulo" class="form-control" />
+                <span asp-validation-for="PrecioArticulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEstadoFk" class="control-label">Estado</label>
+                <select asp-for="IdEstadoFk" class ="form-control" asp-items="ViewBag.IdEstadoFk"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodigoArticulo" class="control-label">Codigo</label>
+                <input asp-for="CodigoArticulo" class="form-control" />
+                <span asp-validation-for="CodigoArticulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaArticulo" class="control-label">Fecha de Ingreso</label>
+                <input type="date" asp-for="FechaArticulo" class="form-control" />
+                <span asp-validation-for="FechaArticulo" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="IdInstitucionFk" class="control-label">Institucion</label>
+                <select asp-for="IdInstitucionFk" class ="form-control" asp-items="ViewBag.IdInstitucionFk"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Agregar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver Atras</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

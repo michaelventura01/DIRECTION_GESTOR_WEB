@@ -1,0 +1,45 @@
+﻿@model DIRECTION_GESTOR.Models.Instituciones
+
+@{
+    ViewData["Title"] = "Create";
+}
+<hr /><hr />
+<h2>Crear Nueva Institucion</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreInstitucion" class="control-label">Nombre de Institucion</label>
+                <input asp-for="NombreInstitucion" class="form-control" />
+                <span asp-validation-for="NombreInstitucion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescripcionInstitucion" class="control-label">Descripcion de Institucion</label>
+                <textarea asp-for="DescripcionInstitucion" cols="50" rows="10" class="form-control"></textarea>
+                <span asp-validation-for="DescripcionInstitucion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IdEstadoFk" class="control-label"></label>
+                <select asp-for="IdEstadoFk" class="form-control" asp-items="ViewBag.IdEstadoFk"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Continuar" class="btn btn-primary" />
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver Atras</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

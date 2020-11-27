@@ -1,0 +1,42 @@
+﻿@model DIRECTION_GESTOR.Models.Relaciones
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<br><br>
+<h2>Editar Relacion</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdRelacion" />
+            <div class="form-group">
+                <label asp-for="IdPersonaFk" class="control-label">Persona</label>
+                <select asp-for="IdPersonaFk" class="form-control" asp-items="ViewBag.IdPersonaFk"></select>
+                <span asp-validation-for="IdPersonaFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdPersonaRelacionFk" class="control-label">Relacionado</label>
+                <select asp-for="IdPersonaRelacionFk" class="form-control" asp-items="ViewBag.IdPersonaRelacionFk"></select>
+                <span asp-validation-for="IdPersonaRelacionFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTipoRelacionFk" class="control-label">Tipo de Relacion</label>
+                <select asp-for="IdTipoRelacionFk" class="form-control" asp-items="ViewBag.IdTipoRelacionFk"></select>
+                <span asp-validation-for="IdTipoRelacionFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Modificar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver Atras</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,51 @@
+﻿@model DIRECTION_GESTOR.Models.Responsabilidadobservaciones
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Responsabilidadobservaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionResponsabilidadObservacion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionResponsabilidadObservacion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaResponsabilidadObservacion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaResponsabilidadObservacion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdInstitucionFk)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdInstitucionFk)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdEstadoFkNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdEstadoFkNavigation.DescripcionEstado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPersonaFkNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdPersonaFkNavigation.ApellidoPersonas)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdResponsabilidadObservacion" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
